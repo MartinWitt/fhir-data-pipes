@@ -52,14 +52,13 @@ public class ReadJsonFilesFn extends FetchSearchPageFn<FileIO.ReadableFile> {
       if (!"Bundle".equals(resource.fhirType())) {
         log.error(
             String.format(
-                "The content of file %s is not a Bundle; type is %s.",
-                file.getMetadata().toString(), resource.fhirType()));
+                "The content of file %s is not a Bundle; type is %s.", file.getMetadata(), resource.fhirType()));
       }
       Bundle bundle = (Bundle) resource;
       updateResolvedRefIds(bundle);
       processBundle(bundle, resourceTypes);
     } catch (DataFormatException | ClassCastException e) {
-      log.error("Cannot parse content of file " + file.getMetadata().toString() + e);
+      log.error("Cannot parse content of file " + file.getMetadata() + e);
     }
   }
 
@@ -98,3 +97,6 @@ public class ReadJsonFilesFn extends FetchSearchPageFn<FileIO.ReadableFile> {
     }
   }
 }
+
+
+

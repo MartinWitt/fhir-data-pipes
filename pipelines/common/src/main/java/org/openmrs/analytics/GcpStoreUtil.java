@@ -64,7 +64,7 @@ class GcpStoreUtil extends FhirStoreUtil {
     try {
       updateFhirResource(sinkUrl, resource);
     } catch (Exception e) {
-      log.error(String.format("Exception while sending to sink: %s", e.toString()));
+      log.error(String.format("Exception while sending to sink: %s", e));
     }
     return null;
   }
@@ -84,9 +84,9 @@ class GcpStoreUtil extends FhirStoreUtil {
           Collections.singletonList(
               new BearerTokenAuthInterceptor(credential.refreshAccessToken().getTokenValue())));
     } catch (IOException e) {
-      log.error("IOException while using Google APIs: {}", e.toString(), e);
+      log.error("IOException while using Google APIs: {}", e, e);
     } catch (URISyntaxException e) {
-      log.error("URI syntax exception while using Google APIs: {}", e.toString(), e);
+      log.error("URI syntax exception while using Google APIs: {}", e, e);
     }
     return null;
   }
@@ -105,9 +105,9 @@ class GcpStoreUtil extends FhirStoreUtil {
           Collections.<IClientInterceptor>singletonList(
               new BearerTokenAuthInterceptor(credential.refreshAccessToken().getTokenValue())));
     } catch (IOException e) {
-      log.error(String.format("IOException while using Google APIs: %s", e.toString()));
+      log.error(String.format("IOException while using Google APIs: %s", e));
     } catch (URISyntaxException e) {
-      log.error(String.format("URI syntax exception while using Google APIs: %s", e.toString()));
+      log.error(String.format("URI syntax exception while using Google APIs: %s", e));
     }
     return null;
   }
@@ -133,3 +133,53 @@ class GcpStoreUtil extends FhirStoreUtil {
         .build();
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
