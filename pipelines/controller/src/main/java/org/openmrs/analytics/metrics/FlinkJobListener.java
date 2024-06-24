@@ -33,7 +33,7 @@ public class FlinkJobListener implements JobListener {
       return;
     }
 
-    logger.info("Submitting the job with ID toString {} ", this.toString());
+    logger.info("Submitting the job with ID toString {} ", this);
     FlinkPipelineMetrics.setJobClient(jobClient);
   }
 
@@ -53,3 +53,5 @@ public class FlinkJobListener implements JobListener {
     FlinkPipelineMetrics.clearJobClient();
   }
 }
+
+
